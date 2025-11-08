@@ -138,26 +138,12 @@ body {
     transform: translate(-50%, -50%); /* perfectly center */
     z-index: 10;         /* above image */
 }
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-
-    /* Flex to center calculator */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* Background image */
-    background-image: url('./desktop-with-mobile-phone.jpg');
-    background-repeat: no-repeat;      /* no tiling */
-    background-position: center center;   /* keep it at top center */
-    background-size: 100% auto;        /* fill width, keep aspect ratio */
-    background-attachment: fixed;      /* static, does not scroll */
-}
-
-#calculator_container {
-    width: 350px;      /* adjust as needed */
-    z-index: 10;       /* above background */
-    /* Add your 3D styles or shadow here */
+img {
+         /* distance from top */
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    bottom: 0;         /* stretch to bottom */
+    object-fit: cover; /* fills container, keeps ratio but crops if needed */
+    z-index: -1;
 }
