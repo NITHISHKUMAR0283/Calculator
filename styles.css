@@ -1,5 +1,5 @@
 html,body{
-    font-size: calc(1.3vh + 0.2vw);
+    font-size: calc(1.5vh );
     height: 100%;
 }
 body {
@@ -9,16 +9,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(115, 115, 88);
 }
 #calculator_container{
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 88%;
     background-color: rgb(77,75,89);
     aspect-ratio: 0.55; 
     border-radius: 20px;
-    
-}
+    box-shadow:-2px -2px rgb(255, 255, 255) ,10px 10px 30px rgb(0, 0, 0),-4px -4px 0px rgb(12, 12, 12),4px 0px 2px rgb(44, 44, 44),inset 10px 5px 5px rgb(59, 59, 59),inset -10px -5px 5px rgb(56, 55, 55);}
 #numbers{
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +31,7 @@ body {
     display: flex;
     height: 100%;
     gap:10px;
-    margin: 4%;
+    margin: 8% 8% 12%;
 }
 #numbers button{
     flex:1 1 calc((100% - 20px)/3);
@@ -40,6 +40,7 @@ body {
     font-weight: bolder;
     font-size: 2rem;
     border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4), -2px -2px 5px rgba(20, 8, 8, 0.8);
 }
 #numbers button:nth-child(1){
     font-size: 1.8rem;
@@ -65,6 +66,8 @@ body {
     font-weight: bolder;
     font-size: 2rem;
     border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4), -2px -2px 5px rgba(20, 8, 8, 0.8);
+
 
 }
 
@@ -72,16 +75,31 @@ body {
     flex:1 1 calc(40% + 11.2px);
     
 }
+@font-face {
+  font-family: 'DS‑Digital';
+  src: url('path/to/DS‑Digital.ttf') format('truetype');
+}
 #display{
-    height: 100px;
+    height: 10rem;
     background-color: rgb(169, 174, 178);
-    margin: 2% 4%;
+    margin: 2% 8%;
     border-radius: 5px;
+    padding:0px 2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    align-items: center;
+    font-family: 'Seven Segment', sans-serif;
+
+    display: flex;
+    justify-content: end;
+    box-shadow: 1px 1px 2px rgb(163, 155, 155),inset 6px 6px 2px rgb(80, 78, 78),inset -6px -6px 10px rgb(76, 74, 74);
+    
 }
 #header{
+    padding-top: 2rem;
     text-align: center;
     margin: 10px;
-    color:rgb(229, 229, 230)
+    color:rgb(195, 195, 195)
 }
 #header #brand{
     font-size: 2rem;
@@ -91,4 +109,55 @@ body {
 }
 #model{
     font-size: 1.5rem;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    align-items: center;       /* center vertically */
+    min-height: 100vh;
+}
+
+.image-container {
+    position: relative;
+    width: 80%;      /* or any percentage of screen */
+    max-width: 600px; /* optional max size */
+}
+
+.image-container img {
+    width: 100%;       /* scale image with container */
+    height: auto;      /* maintain aspect ratio */
+    display: block;
+}
+
+#calculator_container {
+    position: absolute;  /* position on top of image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* perfectly center */
+    z-index: 10;         /* above image */
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    /* Flex to center calculator */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Background image */
+    background-image: url('./desktop-with-mobile-phone.jpg');
+    background-repeat: no-repeat;      /* no tiling */
+    background-position: center center;   /* keep it at top center */
+    background-size: 100% auto;        /* fill width, keep aspect ratio */
+    background-attachment: fixed;      /* static, does not scroll */
+}
+
+#calculator_container {
+    width: 350px;      /* adjust as needed */
+    z-index: 10;       /* above background */
+    /* Add your 3D styles or shadow here */
 }

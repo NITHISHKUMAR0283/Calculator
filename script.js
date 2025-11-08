@@ -14,65 +14,81 @@ function Append_Buttons(){
         Operator_container.appendChild(button);
     }
     Button_container.addEventListener("click",function(event){
-        numbers(event);
+        backend(event);
     });
     Operator_container.addEventListener("click",function(event1){
-        numbers(event1);
+        backend(event1);
     });
 
 }
 Append_Buttons();
-let expression="";
-let operator_count=0;
-let last_operator="";
-function numbers(event){
-    clickedButton=event.target;
-    text=clickedButton.textContent.trim();
+let display=document.getElementById("display");
+let operand1=0;
+let operand2=0;
+let operand='';
+let count=0;
+let result;
+function backend(event){
+    check_operator();//will remove any operator prior
+    let clickedButton=event.target;
+    let text=clickedButton.textContent;
 
-    if (/^[+\-x/%=]$/.test(text)){
-        if(operator_count==1 ){
-            eval_expression();
-
-              }
-        if(operator_count==0){
-            if(text!="="){
-            expression+=text;
-            operator_count+=1; }       }   
-        }   
-    if(/^[1-9]$/.test(text)){
-
-        expression+=text;
-    } 
-        console.log(expression);
-    
-
-    
-}
-function operators(event){
-    clickedoperator=event.target;
-}
-function eval_expression(){
-    let result=0;
-    let op=""
-    let str=""
-    for (let ele of expression){
-        if(/^[+\-x/%]$/.test(ele)){
-            result=Number(str);
-
-            op+=ele;
-            str="";
-        }       
-        else{
-            str+=ele;
-        }
+    if(/^[0-9]$/.test(text)){
+        display.textContent+=text;//add integers
     }
-    let operand2=Number(str);
-    if(op=="+")result+=operand2;
-    else if(op=="-")result-=operand2;
-    else if(op=="x")result*=operand2;
-    else if(op=="/")result/=operand2;
-    else if(op=="%")result%=operand2;
-    operator_count=0;
-    expression=result;
 
+    else if (/^[+\-=/%x]$/.test(text)){
+        if(count==0){
+        operand1=Number(display.textContent);
+        console.log("ehheehhe")
+
+        count+=1}
+        else{
+            if(display.textContent!=result){
+            operand2=Number(display.textContent);
+            console.log(typeof operand1,typeof operand2);
+            display.textContent=evaluator();
+            operand1=Number(display.textContent);
+            count+=1;}
+
+        }
+        console.log("operand1",operand1,"operand2:",operand2,"operand");
+        if(text=="="){
+            display.textContent=result;
+            console.log(result);}
+        else{
+            display.textContent=text
+        }
+
+    }
+
+    else if (text=="DEL"){
+            let input=display.textContent;
+            display.textContent=input.slice(0,-1);
+        }
+    else if (text=="C"){
+        operand1=0;
+        operand2=0;
+        operand='';        
+        count=0;
+        display.textContent=""
+        console.log("Reseted")
+    }
+}
+function check_operator(){
+    let content=display.textContent
+    if (/^[+\-=/x%]$/.test(content)){
+        display.textContent="";
+        operand=content;
+
+    }
+}
+function evaluator(){
+
+    if(operand=="+")result=operand1+operand2;
+    else if(operand=="-")result=operand1-operand2;
+    else if(operand=="x")result=operand1*operand2;
+    else if(operand=="/")result=operand1/operand2;
+    else if(operand=="%")result=operand1%operand2;
+    return result;
 }
