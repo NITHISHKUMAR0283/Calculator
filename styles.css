@@ -1,0 +1,91 @@
+html,body{
+    
+    height: 100%;
+}
+body {
+  margin: 0 10px;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#calculator_container{
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    background-color: rgb(77,75,89);
+    aspect-ratio: 0.57; 
+    border-radius: 20px;
+    
+}
+#numbers{
+    display: flex;
+    flex-wrap: wrap;
+    flex:0 0 75%;
+    gap:10px;
+
+}
+
+#controls{
+    display: flex;
+    height: 100%;
+    gap:10px;
+    margin: 4%;
+}
+#numbers button{
+    flex:1 1 calc((100% - 20px)/3);
+    color: white;
+    background-color: rgb(36, 34, 34);
+    font-weight: bolder;
+    font-size: 25px;
+    border-radius: 8px;
+}
+#numbers button:nth-child(1){
+    font-size: 21px;
+}
+#operators button:nth-child(3){
+    font-size:30px;
+    font-weight: 800;
+}
+#operators{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:1 1 20%;
+    gap:10px ;
+    
+    width:10px;
+}
+#operators button{
+    
+    flex:1 1 calc((100%)/5);
+    color: white;
+    background-color: rgb(36, 34, 34);
+    font-weight: bolder;
+    font-size: x-large;
+    border-radius: 10px;
+
+}
+
+#operators button:nth-child(4){
+    flex:1 1 calc(40% + 11.2px);
+    
+}
+#display{
+    height: 100px;
+    background-color: rgb(169, 174, 178);
+    margin: 2% 4%;
+    border-radius: 5px;
+}
+#header{
+    text-align: center;
+    margin: 10px;
+    color:rgb(229, 229, 230)
+}
+#header #brand{
+    font-size: 20px;
+}
+#header #defenition{
+    font-size: small;
+}
