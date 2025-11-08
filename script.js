@@ -16,4 +16,3 @@ function Append_Buttons(){
 
 }
 Append_Buttons();
-console.log(document.documentElement.outerHTML)
