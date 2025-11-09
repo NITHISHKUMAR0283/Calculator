@@ -84,16 +84,18 @@ body {
     background-color: rgb(169, 174, 178);
     margin: 2% 8%;
     border-radius: 5px;
-    padding:0px 2rem;
+    padding:0px 1rem ;
     font-size: 5rem;
     font-weight: 700;
     align-items: center;
     font-family: 'Seven Segment', sans-serif;
-
     display: flex;
-    justify-content: end;
     box-shadow: 1px 1px 2px rgb(163, 155, 155),inset 6px 6px 2px rgb(80, 78, 78),inset -6px -6px 10px rgb(76, 74, 74);
-    
+    width:25rem;
+    overflow: hidden;
+    overflow-x:auto;
+    scrollbar-width: none; 
+    text-overflow: clip;
 }
 #header{
     padding-top: 2rem;
@@ -146,4 +148,7 @@ img {
     bottom: 0;         /* stretch to bottom */
     object-fit: cover; /* fills container, keeps ratio but crops if needed */
     z-index: -1;
+}
+#display::-webkit-scrollbar {
+  display: none;     
 }

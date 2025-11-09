@@ -34,6 +34,11 @@ function backend(event){
     let text=clickedButton.textContent;
 
     if(/^[0-9]$/.test(text)){
+        if(isOverflownHoriz(display)){
+            display.scrollLeft=display.scrollWidth + display.clientWidth+parseInt(getComputedStyle(display).paddingRight);
+
+        }
+        
         display.textContent+=text;//add integers
     }
 
@@ -87,8 +92,16 @@ function evaluator(){
 
     if(operand=="+")result=operand1+operand2;
     else if(operand=="-")result=operand1-operand2;
-    else if(operand=="x")result=operand1*operand2;
-    else if(operand=="/")result=operand1/operand2;
+    else if(operand=="x")result=roundTo((operand1*operand2),2);
+    else if(operand=="/")result=roundTo((operand1/operand2),2);
     else if(operand=="%")result=operand1%operand2;
     return result;
+}
+function roundTo(num, decimals = 0) {
+  if (!isFinite(num)) return num;           
+  const factor = Math.pow(10, decimals);
+  return Math.round((num + Number.EPSILON) * factor) / factor;
+}
+function isOverflownHoriz(el) {
+  return el.scrollWidth > el.clientWidth;
 }
